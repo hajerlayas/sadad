@@ -10,15 +10,18 @@ import 'package:auto_route/auto_route.dart';
 import 'package:sadad/ui/views/home/home_view.dart';
 import 'package:sadad/ui/views/wallet/wallet_view.dart';
 import 'package:sadad/ui/views/processing/processing_view.dart';
+import 'package:sadad/ui/views/employee/employee_view.dart';
 
 class Routes {
   static const String homeView = '/';
   static const String walletView = '/wallet-view';
   static const String processingView = '/processing-view';
+  static const String employeeView = '/employee-view';
   static const all = <String>{
     homeView,
     walletView,
     processingView,
+    employeeView,
   };
 }
 
@@ -29,6 +32,7 @@ class Router extends RouterBase {
     RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.walletView, page: WalletView),
     RouteDef(Routes.processingView, page: ProcessingView),
+    RouteDef(Routes.employeeView, page: EmployeeView),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -48,6 +52,12 @@ class Router extends RouterBase {
     ProcessingView: (RouteData data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => ProcessingView(),
+        settings: data,
+      );
+    },
+    EmployeeView: (RouteData data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => EmployeeView(),
         settings: data,
       );
     },
