@@ -16,13 +16,18 @@ class EmployeeView extends StatelessWidget {
               )
             : !model.hasError
                 ? ListView.builder(
-                    itemBuilder: (context, index) => Container(
-                          height: 50,
-                          padding: const EdgeInsets.only(left: 35),
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            model.data[index].name,
-                            style: TextStyle(fontSize: 20),
+                    itemCount: model.data.length,
+                    itemBuilder: (context, index) => GestureDetector(
+                          onTap: () =>
+                              model.navigateToProfile(model.data[index]),
+                          child: Container(
+                            height: 50,
+                            padding: const EdgeInsets.only(left: 35),
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              model.data[index].name,
+                              style: TextStyle(fontSize: 20),
+                            ),
                           ),
                         ))
                 : Container(
