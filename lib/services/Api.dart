@@ -25,4 +25,14 @@ class Api {
 
     return employees;
   }
+
+
+  Future<Employee> getEmployeeInfo(int employeeId) async {
+    print(employeeId);
+    var response = await http.get('$endPoint/api/v1/employee/$employeeId?fbclid=IwAR0JSscMcdHhEFf8zU-xExjrhf2lYSV6KWIJR8CiTVe_ZYzcCi_EE_yZ38I');
+    var responseBody = json.decode(response.body);
+    print('response ${response.statusCode}');
+
+    return Employee.fromJson(json.decode(response.body));
+  }
 }

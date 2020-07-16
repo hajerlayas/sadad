@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sadad/app/locator.dart';
 import 'package:stacked/stacked.dart';
 
 import 'employee_viewmodel.dart';
@@ -9,6 +10,8 @@ class EmployeeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<EmployeeViewModel>.reactive(
+      disposeViewModel: false,
+      initialiseSpecialViewModelsOnce: true,
       builder: (context, model, child) => Scaffold(
         body: model.isBusy
             ? Center(
@@ -16,6 +19,7 @@ class EmployeeView extends StatelessWidget {
               )
             : !model.hasError
                 ? ListView.builder(
+                    key: PageStorageKey('storage_key'),
                     itemCount: model.data.length,
                     itemBuilder: (context, index) => GestureDetector(
                           onTap: () =>
@@ -40,7 +44,7 @@ class EmployeeView extends StatelessWidget {
                     ),
                   ),
       ),
-      viewModelBuilder: () => EmployeeViewModel(),
+      viewModelBuilder: () => locator<EmployeeViewModel>(),
     );
   }
 }

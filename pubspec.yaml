@@ -36,6 +36,7 @@ dependencies:
   stacked_services: ^0.4.4+3
   get_it:
   injectable:
+  animations: ^1.1.1
 
 dev_dependencies:
   flutter_test:

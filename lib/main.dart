@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sadad/app/router.gr.dart';
-import 'package:sadad/ui/views/employee_a/employee_view.dart';
+import 'package:sadad/ui/views/employee/employee_view.dart';
+import 'package:sadad/ui/views/employee_info/employee_info_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import 'app/locator.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       //initialRoute: Routes.homeView,
-      home: EmployeeView(),
+      initialRoute: Routes.homEView,
       onGenerateRoute: Router().onGenerateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
     );

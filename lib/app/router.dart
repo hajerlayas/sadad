@@ -4,6 +4,7 @@ import 'package:sadad/ui/views/home/home_view.dart';
 import 'package:sadad/ui/views/processing/processing_view.dart';
 import 'package:sadad/ui/views/profile/profile_view.dart';
 import 'package:sadad/ui/views/wallet/wallet_view.dart';
+import 'package:sadad/ui/views/homeView/home_view.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
@@ -20,6 +21,9 @@ import 'package:sadad/ui/views/wallet/wallet_view.dart';
     ),
     MaterialRoute(
       page: ProfileView,
+    ),
+    MaterialRoute(
+      page: HomEView,
     ),
   ],
 )
